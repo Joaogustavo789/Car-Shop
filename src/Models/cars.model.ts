@@ -18,6 +18,15 @@ class CarsModel {
     this.model = models.Car || model('Car', this.schema);
   }
 
+  public async getCarsModel(): Promise<ICar[]> {
+    const carList = this.model.find();
+    return carList;
+  }
+
+  public async getIdCarsModel(id: string): Promise<ICar | null> {
+    return this.model.findById(id);
+  } 
+
   public async postCarsModel(cars: ICar): Promise<ICar> {
     return this.model.create({ ...cars });
   }
