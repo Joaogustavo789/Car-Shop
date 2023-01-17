@@ -1,4 +1,4 @@
-import { Model, Schema, model, models } from 'mongoose';
+import { Model, Schema, model, models, UpdateQuery } from 'mongoose';
 import ICar from '../Interfaces/ICar';
 
 class CarsModel {
@@ -29,6 +29,14 @@ class CarsModel {
 
   public async postCarsModel(cars: ICar): Promise<ICar> {
     return this.model.create({ ...cars });
+  }
+
+  public async putCarsModel(id: string, cars: ICar): Promise<ICar | null> {
+    return this.model.findByIdAndUpdate(
+      { _id: id },
+      { ...cars } as UpdateQuery<ICar>,
+      { new: true },
+    );
   }
 }
 

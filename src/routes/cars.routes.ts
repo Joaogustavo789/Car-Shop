@@ -9,4 +9,6 @@ carsRouter.get('/:id', (req, res, next) => new CarsController(req, res, next).ge
 
 carsRouter.post('/', (req, res, next) => new CarsController(req, res, next).postCarsController());
 
+carsRouter.put('/:id', (req, res, next) => new CarsController(req, res, next).putCarsController());
+
 export default carsRouter;
