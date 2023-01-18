@@ -1,11 +1,11 @@
 import Motorcycle from '../Domains/Motorcycle';
-import IMotorcycles from '../Interfaces/IMotorcycles';
+import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorModel from '../Models/motorcycles.model';
 
 class MotorService {
   private motorModel = new MotorModel();
 
-  private createMotorDomain(motors: IMotorcycles | null): Motorcycle | undefined {
+  private createMotorDomain(motors: IMotorcycle | null): Motorcycle | undefined {
     if (motors) {
       return new Motorcycle(motors);
     }
@@ -22,12 +22,12 @@ class MotorService {
     return this.createMotorDomain(listMotorId);
   }
 
-  public async postMotorService(motors: IMotorcycles) {
+  public async postMotorService(motors: IMotorcycle) {
     const newMotor = await this.motorModel.create(motors);
     return this.createMotorDomain(newMotor);
   }
 
-  public async putMotorService(id: string, motors: IMotorcycles) {
+  public async putMotorService(id: string, motors: IMotorcycle) {
     const updateMotor = await this.motorModel.update(id, motors);
     return this.createMotorDomain(updateMotor);
   }

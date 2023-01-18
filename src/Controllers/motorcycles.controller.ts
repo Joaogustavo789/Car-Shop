@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { isValidObjectId } from 'mongoose';
-import IMotorcycles from '../Interfaces/IMotorcycles';
+import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorService from '../Services/motorcycles.service';
 
 class MotorController {
@@ -34,7 +34,7 @@ class MotorController {
   }
 
   public async postMotorController() {
-    const motors: IMotorcycles = {
+    const motors: IMotorcycle = {
       model: this.req.body.model,
       year: this.req.body.year,
       color: this.req.body.color,
@@ -53,7 +53,7 @@ class MotorController {
   }
 
   public async putMotoController() {
-    const motors: IMotorcycles = {
+    const motors: IMotorcycle = {
       model: this.req.body.model,
       year: this.req.body.year,
       color: this.req.body.color,
