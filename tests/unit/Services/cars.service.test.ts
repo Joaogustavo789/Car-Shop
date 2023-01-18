@@ -32,6 +32,26 @@ describe('Testes de cars.', function () {
     sinon.restore();
   });
 
+  it('Testa se lista um carro através do id', async function () {
+    const carId = {
+      id: '63c82147eeec10a1f8419461',
+      model: 'Marea',
+      year: 2003,
+      color: 'Black',
+      status: true,
+      buyValue: 15.99,
+      doorsQty: 4,
+      seatsQty: 5,
+    };
+
+    sinon.stub(Model, 'findById').resolves(carId);
+
+    const service2 = new CarsService();
+    const result2 = await service2.getIdCarsService('63c82147eeec10a1f8419461');
+
+    expect(result2).to.be.deep.equal(carId);
+  });
+
   it('Testa se cadastra um novo carro', async function () {
     const newCar = {
       model: 'Marea',

@@ -34,6 +34,26 @@ describe('Testes de motorcycles.', function () {
     sinon.restore();
   });
 
+  it('Testa se lista uma moto através do id', async function () {
+    const motorId = {
+      id: '63c82017eeec10a1f841945e',
+      model: honda,
+      year: 2005,
+      color: 'Yellow',
+      status: true,
+      buyValue: 30,
+      category: 'Street',
+      engineCapacity: 600,
+    };
+
+    sinon.stub(Model, 'findById').resolves(motorId);
+
+    const service2 = new MotorService();
+    const result2 = await service2.getIdMotorService('63c82017eeec10a1f841945e');
+
+    expect(result2).to.be.deep.equal(motorId);
+  });
+
   it('Testa se cadastra uma nova moto', async function () {
     const newMotor = {
       model: honda,
