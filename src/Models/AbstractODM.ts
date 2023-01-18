@@ -33,6 +33,10 @@ abstract class AbstractODM<T> {
       { new: true },
     );
   }
+
+  // public async delete(_id: string) {
+  //   return this.model.findByIdAndDelete({ _id });
+  // }
 }
 
 export default AbstractODM;

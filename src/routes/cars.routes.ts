@@ -11,4 +11,6 @@ carsRouter.post('/', (req, res, next) => new CarsController(req, res, next).post
 
 carsRouter.put('/:id', (req, res, next) => new CarsController(req, res, next).putCarsController());
 
+// carsRouter.delete('/:id', (req, res, next) => new CarsController(req, res, next).delCarControl());
+
 export default carsRouter;

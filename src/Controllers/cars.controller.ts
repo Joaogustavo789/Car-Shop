@@ -73,6 +73,18 @@ class CarsController {
     }
     return this.res.status(200).json(updateCar);
   }
+
+  // public async delCarControl() {
+  //   const { id } = this.req.params;
+  //   if (!isValidObjectId(id)) {
+  //     return this.res.status(422).json({ message: 'Invalid mongo id' });
+  //   }
+  //   const deleteCar = await this.service.deleteCarsService(id);
+  //   if (!deleteCar) {
+  //     return this.res.status(404).json({ message: 'Car not found' });
+  //   }
+  //   return this.res.status(204).end();
+  // }
 }
 
 export default CarsController;

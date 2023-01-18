@@ -74,6 +74,18 @@ class MotorController {
     }
     return this.res.status(200).json(updateMotor);
   }
+
+  // public async delMotoControl() {
+  //   const { id } = this.req.params;
+  //   if (!isValidObjectId(id)) {
+  //     return this.res.status(422).json({ message: 'Invalid mongo id' });
+  //   }
+  //   const deleteMotor = await this.service.deleteMotorService(id);
+  //   if (!deleteMotor) {
+  //     return this.res.status(404).json({ message: 'Motorcycle not found' });
+  //   }
+  //   return this.res.status(204).end();
+  // }
 }
 
 export default MotorController;

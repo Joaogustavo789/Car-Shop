@@ -31,6 +31,11 @@ class MotorService {
     const updateMotor = await this.motorModel.update(id, motors);
     return this.createMotorDomain(updateMotor);
   }
+
+  // public async deleteMotorService(id: string) {
+  //   const deleteMotor = await this.motorModel.delete(id);
+  //   return this.createMotorDomain(deleteMotor);
+  // }
 }
 
 export default MotorService;
