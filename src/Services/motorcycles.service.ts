@@ -26,6 +26,11 @@ class MotorService {
     const newMotor = await this.motorModel.create(motors);
     return this.createMotorDomain(newMotor);
   }
+
+  public async putMotorService(id: string, motors: IMotorcycles) {
+    const updateMotor = await this.motorModel.update(id, motors);
+    return this.createMotorDomain(updateMotor);
+  }
 }
 
 export default MotorService;

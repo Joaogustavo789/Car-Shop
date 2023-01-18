@@ -9,4 +9,6 @@ motoRouter.get('/:id', (req, res, next) => new MotorController(req, res, next).g
 
 motoRouter.post('/', (req, res, next) => new MotorController(req, res, next).postMotorController());
 
+motoRouter.put('/:id', (req, res, next) => new MotorController(req, res, next).putMotoController());
+
 export default motoRouter;
