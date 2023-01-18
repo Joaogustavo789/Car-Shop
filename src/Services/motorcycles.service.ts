@@ -11,6 +11,17 @@ class MotorService {
     }
   }
 
+  public async getMotorService() {
+    const listMotor = await this.motorModel.find();
+    const listMotorArray = listMotor.map((motor) => this.createMotorDomain(motor));
+    return listMotorArray;
+  }
+
+  public async getIdMotorService(id: string) {
+    const listMotorId = await this.motorModel.findById(id);
+    return this.createMotorDomain(listMotorId);
+  }
+
   public async postMotorService(motors: IMotorcycles) {
     const newMotor = await this.motorModel.create(motors);
     return this.createMotorDomain(newMotor);
