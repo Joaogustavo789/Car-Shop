@@ -12,13 +12,13 @@ class CarsService {
   }
 
   public async getCarsService() {
-    const listCar = await this.carsModel.getCarsModel();
+    const listCar = await this.carsModel.find();
     const listCarArray = listCar.map((car) => this.createCarDomain(car));
     return listCarArray;
   }
 
   public async getIdCarsService(id: string) {
-    const listCarId = await this.carsModel.getIdCarsModel(id);
+    const listCarId = await this.carsModel.findById(id);
     // if (cars.id) {
     //   throw new Error(404, 'Car not found');
     // }
@@ -29,14 +29,35 @@ class CarsService {
   }
 
   public async postCarsService(cars: ICar) {
-    const newCar = await this.carsModel.postCarsModel(cars);
+    const newCar = await this.carsModel.create(cars);
     return this.createCarDomain(newCar);
   }
 
   public async putCarsService(id: string, cars: ICar) {
-    const carUpdate = await this.carsModel.putCarsModel(id, cars);
+    const carUpdate = await this.carsModel.update(id, cars);
     return this.createCarDomain(carUpdate);
   }
 }
 
 export default CarsService;
+
+// import { Schema } from 'mongoose';
+// import ICar from '../Interfaces/ICar';
+// import AbstractODM from './AbstractODM';
+
+// class CarsModel extends AbstractODM<ICar> {
+//   constructor() {
+//     const schema = new Schema<ICar>({
+//       model: { type: String, required: true },
+//       year: { type: Number, required: true },
+//       color: { type: String, required: true },
+//       status: { type: Boolean, required: false },
+//       buyValue: { type: Number, required: true },
+//       doorsQty: { type: Number, required: true },
+//       seatsQty: { type: Number, required: true },
+//     });
+//     super(schema, 'Car');
+//   }
+// }
+
+// export default CarsModel;
