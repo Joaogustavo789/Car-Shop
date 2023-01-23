@@ -38,31 +38,10 @@ class CarsService {
     return this.createCarDomain(carUpdate);
   }
 
-  // public async deleteCarsService(id: string) {
-  //   const deleteCar = await this.carsModel.delete(id);
-  //   return this.createCarDomain(deleteCar);
-  // }
+  public async deleteCarsService(id: string) {
+    const deleteCar = await this.carsModel.delete(id);
+    return this.createCarDomain(deleteCar);
+  }
 }
 
 export default CarsService;
-
-// import { Schema } from 'mongoose';
-// import ICar from '../Interfaces/ICar';
-// import AbstractODM from './AbstractODM';
-
-// class CarsModel extends AbstractODM<ICar> {
-//   constructor() {
-//     const schema = new Schema<ICar>({
-//       model: { type: String, required: true },
-//       year: { type: Number, required: true },
-//       color: { type: String, required: true },
-//       status: { type: Boolean, required: false },
-//       buyValue: { type: Number, required: true },
-//       doorsQty: { type: Number, required: true },
-//       seatsQty: { type: Number, required: true },
-//     });
-//     super(schema, 'Car');
-//   }
-// }
-
-// export default CarsModel;

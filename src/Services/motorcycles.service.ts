@@ -32,10 +32,10 @@ class MotorService {
     return this.createMotorDomain(updateMotor);
   }
 
-  // public async deleteMotorService(id: string) {
-  //   const deleteMotor = await this.motorModel.delete(id);
-  //   return this.createMotorDomain(deleteMotor);
-  // }
+  public async deleteMotorService(id: string) {
+    const deleteMotor = await this.motorModel.delete(id);
+    return this.createMotorDomain(deleteMotor);
+  }
 }
 
 export default MotorService;

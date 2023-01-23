@@ -34,9 +34,9 @@ abstract class AbstractODM<T> {
     );
   }
 
-  // public async delete(_id: string) {
-  //   return this.model.findByIdAndDelete({ _id });
-  // }
+  public async delete(id: string) {
+    return this.model.findByIdAndDelete(id);
+  }
 }
 
 export default AbstractODM;

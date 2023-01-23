@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import ICar from '../../../src/Interfaces/ICar';
 import Car from '../../../src/Domains/Car';
 import CarsService from '../../../src/Services/cars.service';
+import Connection from '../../../src/Models/Connection';
 
 const carsArray = [
   {
@@ -20,6 +21,7 @@ const carsArray = [
 
 describe('Testes de cars.', function () {
   it('Testa se lista todos os carros', async function () {
+    await Connection();
     const carsOutput2 = carsArray.map((car) => new Car({ ...car }));
 
     sinon.stub(Model, 'find').resolves(carsOutput2);
@@ -82,8 +84,33 @@ describe('Testes de cars.', function () {
     expect(result).to.be.deep.equal(carOutput);
   });
 
-  // it('Testa se atualiza os carros', function () {
+  it('Testa se atualiza um carro através do id.', async function () {
+    const carsUp: ICar = {
+      id: '63c957ccc4fc63d623668892',
+      model: 'Marea',
+      year: 1992,
+      color: 'Red',
+      status: true,
+      buyValue: 12.000,
+      doorsQty: 2,
+      seatsQty: 5,
+    };
 
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(carsUp);
+
+    const service3 = new CarsService();
+    const result3 = await service3.putCarsService('63c957ccc4fc63d623668892', carsUp);
+
+    expect(result3).to.be.deep.equal(carsUp);
+  });
+
+  // it('Testa se deleta um carro através do id.', async function () {
+  //   sinon.stub(Model, 'findByIdAndDelete').resolves('63c957ccc4fc63d623668892');
+
+  //   const service4 = new CarsService();
+  //   const result4 = await service4.deleteCarsService('63c957ccc4fc63d623668892');
+
+  //   expect(result4).to.be.deep.equal(null);
   // });
 
   afterEach(function () {

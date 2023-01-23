@@ -84,6 +84,35 @@ describe('Testes de motorcycles.', function () {
     expect(result2).to.be.deep.equal(motorOutput);
   });
 
+  it('Testa se atualiza uma moto através do id.', async function () {
+    const motorsUp: IMotorcycle = {
+      id: '63c958b1c4fc63d623668894',
+      model: honda,
+      year: 2007,
+      color: 'Yellow',
+      status: true,
+      buyValue: 30,
+      category: 'Street',
+      engineCapacity: 600,
+    };
+
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(motorsUp);
+
+    const service3 = new MotorService();
+    const result3 = await service3.putMotorService('63c958b1c4fc63d623668894', motorsUp);
+
+    expect(result3).to.be.deep.equal(motorsUp);
+  });
+
+  // it('Testa se deleta uma moto através do id.', async function () {
+  //   sinon.stub(Model, 'findByIdAndDelete').resolves('63c958b1c4fc63d623668894');
+
+  //   const service3 = new MotorService();
+  //   const result3 = await service3.deleteMotorService('63c958b1c4fc63d623668894');
+
+  //   expect(result3).to.be.deep.equal(null);
+  // });
+
   afterEach(function () {
     sinon.restore();
   });

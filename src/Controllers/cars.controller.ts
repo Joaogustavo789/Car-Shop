@@ -3,6 +3,10 @@ import { isValidObjectId } from 'mongoose';
 import ICar from '../Interfaces/ICar';
 import CarsService from '../Services/cars.service';
 
+const invalidMongo = 'Invalid mongo id';
+
+const carNotFound = 'Car not found';
+
 class CarsController {
   private req: Request;
   private res: Response;
@@ -24,11 +28,11 @@ class CarsController {
   public async getIdCarController() {
     const { id } = this.req.params;
     if (!isValidObjectId(id)) {
-      return this.res.status(422).json({ message: 'Invalid mongo id' });
+      return this.res.status(422).json({ message: invalidMongo });
     }
     const listCarId = await this.service.getIdCarsService(id);
     if (!listCarId) {
-      return this.res.status(404).json({ message: 'Car not found' });
+      return this.res.status(404).json({ message: carNotFound });
     }
     return this.res.status(200).json(listCarId);
   }
@@ -65,26 +69,26 @@ class CarsController {
 
     const { id } = this.req.params;
     if (!isValidObjectId(id)) {
-      return this.res.status(422).json({ message: 'Invalid mongo id' });
+      return this.res.status(422).json({ message: invalidMongo });
     }
     const updateCar = await this.service.putCarsService(id, cars);
     if (!updateCar) {
-      return this.res.status(404).json({ message: 'Car not found' });
+      return this.res.status(404).json({ message: carNotFound });
     }
     return this.res.status(200).json(updateCar);
   }
 
-  // public async delCarControl() {
-  //   const { id } = this.req.params;
-  //   if (!isValidObjectId(id)) {
-  //     return this.res.status(422).json({ message: 'Invalid mongo id' });
-  //   }
-  //   const deleteCar = await this.service.deleteCarsService(id);
-  //   if (!deleteCar) {
-  //     return this.res.status(404).json({ message: 'Car not found' });
-  //   }
-  //   return this.res.status(204).end();
-  // }
+  public async delCarControl() {
+    const { id } = this.req.params;
+    if (!isValidObjectId(id)) {
+      return this.res.status(422).json({ message: invalidMongo });
+    }
+    const deleteCar = await this.service.deleteCarsService(id);
+    if (!deleteCar) {
+      return this.res.status(404).json({ message: carNotFound });
+    }
+    return this.res.status(204).end();
+  }
 }
 
 export default CarsController;

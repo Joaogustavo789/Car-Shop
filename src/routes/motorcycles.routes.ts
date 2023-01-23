@@ -11,6 +11,6 @@ motoRouter.post('/', (req, res, next) => new MotorController(req, res, next).pos
 
 motoRouter.put('/:id', (req, res, next) => new MotorController(req, res, next).putMotoController());
 
-// motoRouter.delete('/:id', (req, res, next) => new MotorController(req, res, next).delMotoControl());
+motoRouter.delete('/:id', (req, res, next) => new MotorController(req, res, next).delMotoControl());
 
 export default motoRouter;
