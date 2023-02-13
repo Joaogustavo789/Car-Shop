@@ -125,7 +125,7 @@ Para rodar os testes, rode o seguinte comando
 - [Docker](https://docs.docker.com/)
 - [Mongoose](https://mongoosejs.com/)
 - [Node.js](https://nodejs.org/en/)
-- [Express](https://expressjs.com/pt-br/)
+- [Express.js](https://expressjs.com/pt-br/)
 - [Typescript](https://www.typescriptlang.org/)
 
 ## Feedback
