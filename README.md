@@ -116,6 +116,10 @@ Para rodar os testes, rode o seguinte comando
         <span><strong>TypeScript</strong></span><br>
           <img height="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
       </td>
+      <td width="80px" align="center">
+        <span><strong>Mocha</strong></span><br>
+          <img height="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mocha/mocha-plain.svg" />
+      </td>
     </tr>
   </tbody>
 </table>
@@ -127,6 +131,7 @@ Para rodar os testes, rode o seguinte comando
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/pt-br/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Mocha](https://mochajs.org/)
 
 ## Feedback
 
