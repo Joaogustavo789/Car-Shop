@@ -1,7 +1,7 @@
 
 # Car-Shop 🚗 🏍️
 
-Car-Shop é uma aplicação Back-End de uma concessionária que vende carros e motos, que foi desenvolvida com o `Mongoose` (ODM), `Node.js`, `Express.js` e `TypeScript`. Nela é possível Listar, Criar, Atualizar e Deletar os veículos.
+Car-Shop é uma aplicação Back-End de uma concessionária que vende carros e motos, que foi desenvolvida com o `Mongoose` (ODM), `Node.js`, `Express.js` e `TypeScript` através da Arquitetura de Software `MSC(Model, Service, Controller)`. Nela é possível Listar, Criar, Atualizar e Deletar os veículos.
 
 ## Rodando com Docker
 
