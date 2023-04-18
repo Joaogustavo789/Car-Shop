@@ -88,7 +88,6 @@ Para rodar os testes, rode o seguinte comando
 ```
 </details>
 
-
 ## Ferramentas e Tecnologias
 
 <br>
@@ -136,44 +135,3 @@ Para rodar os testes, rode o seguinte comando
 ## Feedback
 
 Se você tiver algum feedback, por favor nos deixe saber por meio de jgustavomendonca@gmail.com
-
-
-<!--
-## Documentação da API
-
-#### Retorna todos os itens
-
-```http
-  GET /api/items
-```
-
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `api_key` | `string` | **Obrigatório**. A chave da sua API |
-
-#### Retorna um item
-
-```http
-  GET /api/items/${id}
-```
-
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
-
-#### add(num1, num2)
-
-Recebe dois números e retorna a sua soma.
--->
-
-<!-- 
-## Uso/Exemplos
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
--->
