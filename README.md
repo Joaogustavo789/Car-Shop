@@ -88,8 +88,9 @@ Para rodar os testes, rode o seguinte comando
 ```
 </details>
 
-
 ## Documentação da API
+<details>
+  <summary>Clique para expandir</summary>
 
 ### Cria um novo carro
 
@@ -516,6 +517,7 @@ Para rodar os testes, rode o seguinte comando
 ```
 
 **OBS: Caso a exclusão tenha dado certo, o status 204 é retornado sem conteúdo.**
+</details>
 </details>
 
 ## Ferramentas e Tecnologias
