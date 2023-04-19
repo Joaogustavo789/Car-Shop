@@ -88,6 +88,436 @@ Para rodar os testes, rode o seguinte comando
 ```
 </details>
 
+
+## Documentação da API
+
+### Cria um novo carro
+
+```http
+  POST /cars
+```
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Formato da requisição
+
+```js
+{
+  "model": "Marea",
+  "year": 2002,
+  "color": "Black",
+  "status": true,
+  "buyValue": 15.990,
+  "doorsQty": 4,
+  "seatsQty": 5
+}
+```
+
+#### Resposta esperada
+
+```js
+{
+  "id": "6348513f34c397abcad040b2",
+  "model": "Marea",
+  "year": 2002,
+  "color": "Black",
+  "status": true,
+  "buyValue": 15.990,
+  "doorsQty": 4,
+  "seatsQty": 5
+}
+```
+</details>
+
+### Retorna todos os carros
+
+```http
+  GET /cars
+```
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Resposta esperada
+
+```js
+[
+  {
+    "id": "634852326b35b59438fbea2f",
+    "model": "Marea",
+    "year": 2002,
+    "color": "Black",
+    "status": true,
+    "buyValue": 15.99,
+    "doorsQty": 4,
+    "seatsQty": 5
+  },
+  {
+    "id": "634852326b35b59438fbea31",
+    "model": "Tempra",
+    "year": 1995,
+    "color": "Black",
+    "buyValue": 39,
+    "doorsQty": 2,
+    "seatsQty": 5
+  }
+]
+```
+</details>
+
+### Retorna um carro
+
+```http
+  GET /cars/:id
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do carro que você deseja buscar |
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Resposta esperada
+
+```js
+ {
+    "id": "634852326b35b59438fbea2f",
+    "model": "Marea",
+    "year": 2002,
+    "color": "Black",
+    "status": true,
+    "buyValue": 15.99,
+    "doorsQty": 4,
+    "seatsQty": 5
+  }
+```
+
+#### Resposta com algum parâmetro errado
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+- **carro não existente**
+
+```js
+{ "message": "Car not found" }
+```
+
+- **id inválido**
+
+```js
+{ "message": "Invalid mongo id" }
+```
+</details>
+</details>
+
+### Atualiza um carro
+
+```http
+  PUT /cars/:id
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do carro que você deseja alterar |
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Formato da requisição
+
+```js
+{
+  "model": "Marea",
+  "year": 1992,
+  "color": "Red",
+  "status": true,
+  "buyValue": 12.000,
+  "doorsQty": 2,
+  "seatsQty": 5
+}
+```
+
+#### Resposta esperada
+
+```js
+{
+    "id": "634852326b35b59438fbea2f",
+    "model": "Marea",
+    "year": 1992,
+    "color": "Red",
+    "status": true,
+    "buyValue": 12.000,
+    "doorsQty": 2,
+    "seatsQty": 5
+  }
+```
+
+#### Resposta com algum parâmetro errado
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+- **carro não existente**
+
+```js
+{ "message": "Car not found" }
+```
+
+- **id inválido**
+
+```js
+{ "message": "Invalid mongo id" }
+```
+</details>
+</details>
+
+### Exclui um carro
+
+```http
+  DELETE /cars/:id
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do carro que você deseja excluir |
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Resposta com algum parâmetro errado
+
+- **carro não existente**
+
+```js
+{ "message": "Car not found" }
+```
+
+- **id inválido**
+
+```js
+{ "message": "Invalid mongo id" }
+```
+
+**OBS: Caso a exclusão tenha dado certo, o status 204 é retornado sem conteúdo.**
+</details>
+
+### Cria uma nova moto
+
+```http
+  POST /motorcycles
+```
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Formato da requisição
+
+```js
+{
+  "model": "Honda Cb 600f Hornet",
+  "year": 2005,
+  "color": "Yellow",
+  "status": true,
+  "buyValue": 30.000,
+  "category": "Street",
+  "engineCapacity": 600
+}
+```
+
+#### Resposta esperada
+
+```js
+{
+  "id": "6348513f34c397abcad040b2",
+  "model": "Honda Cb 600f Hornet",
+  "year": 2005,
+  "color": "Yellow",
+  "status": true,
+  "buyValue": 30.000,
+  "category": "Street",
+  "engineCapacity": 600
+}
+```
+</details>
+
+### Retorna todas as motos
+
+```http
+  GET /motorcycles
+```
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Resposta esperada
+
+```js
+[
+  {
+    "id": "634852326b35b59438fbea2f",
+    "model": "Honda Cb 600f Hornet",
+    "year": 2005,
+    "color": "Yellow",
+    "status": true,
+    "buyValue": 30.000,
+    "category": "Street",
+    "engineCapacity": 600
+  },
+  {
+    "id": "634852326b35b59438fbea31",
+    "model": "Honda Cbr 1000rr",
+    "year": 2011,
+    "color": "Orange",
+    "status": true,
+    "buyValue": 59.900,
+    "category": "Street",
+    "engineCapacity": 1000
+  }
+]
+```
+</details>
+
+### Retorna uma moto
+
+```http
+  GET /motorcycles/:id
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da moto que você deseja buscar |
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Resposta esperada
+
+```js
+{
+  "id": "634852326b35b59438fbea31",
+  "model": "Honda Cbr 1000rr",
+  "year": 2011,
+  "color": "Orange",
+  "status": true,
+  "buyValue": 59.900,
+  "category": "Street",
+  "engineCapacity": 1000
+}
+```
+
+#### Resposta com algum parâmetro errado
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+- **moto não existente**
+
+```js
+{ "message": "Motorcycle not found" }
+```
+
+- **id inválido**
+
+```js
+{ "message": "Invalid mongo id" }
+```
+</details>
+</details>
+
+### Atualiza uma moto
+
+```http
+  PUT /motorcycles/:id
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da moto que você deseja alterar |
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Formato da requisição
+
+```js
+{
+  "model": "Honda Cb 600f Hornet",
+  "year": 2014,
+  "color": "Red",
+  "status": true,
+  "buyValue": 45.000,
+  "category": "Street",
+  "engineCapacity": 600
+}
+```
+
+#### Resposta esperada
+
+```js
+{
+  "id": "634852326b35b59438fbea2f",
+  "model": "Honda Cb 600f Hornet",
+  "year": 2014,
+  "color": "Red",
+  "status": true,
+  "buyValue": 45.000,
+  "category": "Street",
+  "engineCapacity": 600
+}
+```
+
+#### Resposta com algum parâmetro errado
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+- **moto não existente**
+
+```js
+{ "message": "Motorcycle not found" }
+```
+
+- **id inválido**
+
+```js
+{ "message": "Invalid mongo id" }
+```
+</details>
+</details>
+
+### Exclui uma moto
+
+```http
+  DELETE /motorcycles/:id
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID da moto que você deseja excluir |
+<details>
+  <summary>Clique para expandir</summary>
+  <br>
+
+#### Resposta com algum parâmetro errado
+
+- **moto não existente**
+
+```js
+{ "message": "Motorcycle not found" }
+```
+
+- **id inválido**
+
+```js
+{ "message": "Invalid mongo id" }
+```
+
+**OBS: Caso a exclusão tenha dado certo, o status 204 é retornado sem conteúdo.**
+</details>
+
 ## Ferramentas e Tecnologias
 
 <br>
